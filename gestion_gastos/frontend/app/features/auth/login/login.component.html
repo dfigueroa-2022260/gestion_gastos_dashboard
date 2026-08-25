@@ -1,0 +1,76 @@
+<div class="card">
+  <svg
+    class="illustration"
+    viewBox="0 0 200 160"
+    xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-label="Ilustracion de una billetera con una moneda y un brote creciendo"
+  >
+    <path class="sprout" d="M 108 96 C 108 80, 118 70, 116 54" />
+    <g class="leaf">
+      <ellipse cx="120" cy="53" rx="7" ry="4" fill="var(--navy)" transform="rotate(-25 120 53)" />
+    </g>
+    <path
+      class="wallet-path"
+      d="M 40 96 L 40 132 Q 40 138 46 138 L 154 138 Q 160 138 160 132 L 160 96 Q 160 90 154 90 L 46 90 Q 40 90 40 96 Z"
+    />
+    <path class="wallet-path" d="M 40 96 L 160 96" style="animation-delay: 0.5s" />
+    <rect class="wallet-path" x="128" y="104" width="24" height="18" rx="3" style="animation-delay: 0.6s" />
+    <g class="coin">
+      <circle cx="100" cy="60" r="16" fill="var(--gold)" />
+      <text x="100" y="65" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="14" fill="#FFFFFF">Q</text>
+    </g>
+  </svg>
+
+  <div class="brand">Cash Track</div>
+  <p class="tagline">tu control de gastos, en orden</p>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <div class="field">
+      <label for="email">Correo</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="nombre@correo.com"
+        autocomplete="email"
+        [class.error]="email.invalid && email.touched"
+      />
+      <div class="error-msg" *ngIf="email.invalid && email.touched">
+        Ingresa un correo valido.
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="password">Contraseña</label>
+      <input
+        id="password"
+        type="password"
+        formControlName="password"
+        placeholder="••••••••"
+        autocomplete="current-password"
+        [class.error]="password.invalid && password.touched"
+      />
+      <div class="error-msg" *ngIf="password.invalid && password.touched">
+        La contraseña es obligatoria.
+      </div>
+    </div>
+
+    <div class="error-msg" style="margin-bottom: 12px;" *ngIf="errorServidor()">
+      {{ errorServidor() }}
+    </div>
+
+    <div class="row-between">
+      <a href="#">¿Olvidaste tu contraseña?</a>
+    </div>
+
+    <button type="submit" [disabled]="cargando()">
+      <span class="spinner" [class.show]="cargando()"></span>
+      <span>{{ cargando() ? 'Entrando...' : 'Entrar' }}</span>
+    </button>
+  </form>
+
+  <div class="footer-link">
+    ¿No tienes cuenta? <a routerLink="/registro">Registrate</a>
+  </div>
+</div>
