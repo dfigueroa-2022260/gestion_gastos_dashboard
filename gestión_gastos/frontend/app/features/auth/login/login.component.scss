@@ -1,0 +1,269 @@
+:host {
+  --bg: #f4f6f9;
+  --card: #ffffff;
+  --ink: #0f1f38;
+  --ink-soft: #5c6b85;
+  --moss: #e8672a;
+  --moss-dark: #c24f1b;
+  --gold: #e8672a;
+  --navy: #16305c;
+  --border: #e0e4ec;
+  --danger: #c43d3d;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  padding: 40px 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px 36px 32px;
+  text-align: center;
+}
+
+.illustration {
+  width: 132px;
+  height: 110px;
+  margin: 0 auto 6px;
+  display: block;
+}
+
+.brand {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 26px;
+  letter-spacing: -0.01em;
+  margin: 6px 0 2px;
+}
+
+.tagline {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0 0 30px;
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.01em;
+}
+
+form {
+  text-align: left;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+input {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--ink);
+  background: #fbfcf9;
+  outline: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+
+  &:focus {
+    border-color: var(--moss);
+    background: #ffffff;
+  }
+
+  &.error {
+    border-color: var(--danger);
+  }
+}
+
+.error-msg {
+  font-size: 12px;
+  color: var(--danger);
+  margin-top: 5px;
+}
+
+.row-between {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2px 0 22px;
+
+  a {
+    font-size: 12.5px;
+    color: var(--moss);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: var(--moss);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.08s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  &:hover {
+    background: var(--moss-dark);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: default;
+  }
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  display: none;
+  animation: spin 0.7s linear infinite;
+
+  &.show {
+    display: inline-block;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.footer-link {
+  margin-top: 22px;
+  font-size: 13px;
+  color: var(--ink-soft);
+
+  a {
+    color: var(--moss);
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.wallet-path {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  animation: draw 1s ease forwards 0.1s;
+}
+
+.coin {
+  transform-origin: center;
+  opacity: 0;
+  animation: fall 0.55s cubic-bezier(0.34, 1.4, 0.64, 1) forwards 0.9s,
+    bob 2.4s ease-in-out infinite 1.6s;
+}
+
+.sprout {
+  fill: none;
+  stroke: var(--moss);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: draw 0.7s ease forwards 1.5s;
+}
+
+.leaf {
+  opacity: 0;
+  transform-origin: center;
+  animation: pop 0.4s ease forwards 2.1s;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fall {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.6);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wallet-path,
+  .coin,
+  .sprout,
+  .leaf {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+    opacity: 1 !important;
+  }
+}

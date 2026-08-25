@@ -1,0 +1,8 @@
+<div class="overlay" *ngIf="authService.sesionExpirada()">
+  <div class="modal">
+    <div class="icon">⏱</div>
+    <h3>Tu sesion expiro</h3>
+    <p>Por seguridad, cerramos tu sesion por inactividad. Inicia sesion de nuevo para continuar.</p>
+    <button (click)="volverAlLogin()">Volver al inicio de sesion</button>
+  </div>
+</div>
