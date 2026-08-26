@@ -30,6 +30,8 @@
   display: flex;
   flex-direction: column;
   padding: 20px 14px;
+  position: relative;
+  z-index: 1;
 }
 
 .sidebar-top {
@@ -138,8 +140,12 @@
   align-items: center;
   gap: 24px;
   background: var(--d-card);
-  padding: 16px 28px;
-  border-bottom: 1px solid var(--d-border);
+  padding: 14px 28px 14px 64px;
+  margin: 16px 20px 10px -44px;
+  border-radius: 22px;
+  box-shadow: 0 14px 30px rgba(43, 42, 40, 0.16);
+  position: relative;
+  z-index: 2;
 }
 
 .topbar-brand {
@@ -473,6 +479,11 @@
 @media (max-width: 760px) {
   .sidebar {
     display: none;
+  }
+
+  .topbar {
+    margin-left: 16px;
+    padding-left: 20px;
   }
 
   .topbar-nav {
