@@ -29,7 +29,7 @@
   color: rgba(255, 255, 255, 0.75);
   display: flex;
   flex-direction: column;
-  padding: 22px 14px 20px;
+  padding: 15px 14px 20px;
   position: relative;
   z-index: 1;
 }
@@ -38,7 +38,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 2px 22px;
+  padding: 0px 2px 22px;
 }
 
 .icon-circle {
@@ -155,7 +155,7 @@
   // de una franja angosta. margin-top solo lo justo para no tapar los
   // iconos de arriba (campana / colapsar); sin margen a la derecha para
   // que no quede un marco de espacio vacio alrededor.
-  margin: 80px 0 0 -220px;
+  margin: 64px 0 0 -220px;
   border-radius: 18px;
   box-shadow: 0 12px 26px rgba(43, 42, 40, 0.14);
   position: relative;
