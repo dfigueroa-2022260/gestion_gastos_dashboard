@@ -5,5 +5,19 @@ export const GASTOS_ROUTES: Routes = [
     path: '',
     loadComponent: () =>
       import('./gastos-home.component').then((m) => m.GastosHomeComponent),
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./dashboard-overview/dashboard-overview.component').then(
+            (m) => m.DashboardOverviewComponent
+          ),
+      },
+      {
+        path: 'ingresos',
+        loadComponent: () =>
+          import('../ingresos/ingresos.component').then((m) => m.IngresosComponent),
+      },
+    ],
   },
 ];

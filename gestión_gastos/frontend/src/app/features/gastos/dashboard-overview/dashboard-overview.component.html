@@ -1,0 +1,98 @@
+<div class="content-header">
+  <h1>CASH TRACK <span>Principal</span></h1>
+  <div class="content-actions">
+    <button class="btn-filter" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16M7 12h10M10 19h4" stroke-linecap="round"/></svg>
+      Filter
+    </button>
+    <button class="btn-calendar" type="button">
+      Calendario
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</div>
+
+<button class="tip-banner" type="button">Consejos de Finanzas</button>
+
+<div class="stats-grid">
+  <div class="stat-card highlight">
+    <div class="stat-top">
+      <span>Total</span>
+      <span class="stat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-linecap="round"/></svg>
+      </span>
+    </div>
+    <div class="stat-value">Q25,000</div>
+    <div class="stat-sub">+12% mas variables</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-top">
+      <span>Datos de usuario</span>
+      <span class="stat-icon dark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6" stroke-linecap="round"/></svg>
+      </span>
+    </div>
+    <div class="stat-value">Info</div>
+    <div class="stat-sub">Datos</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-top">
+      <span>Metas de ahorro</span>
+      <span class="stat-icon dark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/></svg>
+      </span>
+    </div>
+    <div class="stat-value">320</div>
+    <div class="stat-sub">+5% mas</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-top">
+      <span>Descuentos de impuestos</span>
+      <span class="stat-icon dark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19L19 5M8 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM16 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" stroke-linecap="round"/></svg>
+      </span>
+    </div>
+    <div class="stat-value">4.8%</div>
+    <div class="stat-sub">+12% increase</div>
+  </div>
+</div>
+
+<div class="charts-grid">
+  <div class="chart-card">
+    <h3>Resumen de gastos</h3>
+    <svg class="line-chart" viewBox="0 0 460 220" preserveAspectRatio="none">
+      <line *ngFor="let y of [0, 40, 80, 120, 160]" x1="30" [attr.y1]="190 - y" x2="450" [attr.y2]="190 - y" class="grid-line" />
+      <polyline [attr.points]="puntosLinea(lineaGastos)" class="line-dark" />
+      <polyline [attr.points]="puntosLinea(lineaIngresos)" class="line-accent" />
+      <text *ngFor="let m of mesesLinea; let i = index" [attr.x]="30 + i * 70" y="208" class="axis-label">{{ m }}</text>
+    </svg>
+  </div>
+
+  <div class="chart-card">
+    <h3>Resumen de ingresos</h3>
+    <div class="donut-wrap">
+      <div class="donut-info">
+        <span>Revenue Analytics</span>
+        <strong>Q12,000</strong>
+        <button type="button">EXTRAS</button>
+      </div>
+      <svg class="donut-chart" viewBox="0 0 100 100">
+        <circle
+          *ngFor="let seg of donutSegmentos; let i = index"
+          cx="50"
+          cy="50"
+          r="40"
+          fill="none"
+          [attr.stroke]="seg.color"
+          stroke-width="14"
+          [attr.stroke-dasharray]="donutLargo(seg.porcentaje) + ' 251'"
+          [attr.stroke-dashoffset]="donutOffset(i)"
+          transform="rotate(-90 50 50)"
+        />
+      </svg>
+    </div>
+  </div>
+</div>

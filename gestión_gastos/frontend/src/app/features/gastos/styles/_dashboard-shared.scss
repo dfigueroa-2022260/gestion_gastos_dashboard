@@ -1,0 +1,408 @@
+// Estilos de CONTENIDO compartidos entre las paginas que viven dentro del
+// shell del dashboard (sidebar+topbar en gastos-home.component). Las
+// variables de color (--d-accent, --d-card, etc.) las define el :host del
+// shell y se heredan via CSS custom properties, no hace falta redeclararlas.
+
+.content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.content-header h1 {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0;
+
+  span {
+    font-weight: 500;
+    color: var(--d-ink-soft);
+    margin-left: 8px;
+  }
+}
+
+.content-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-filter,
+.btn-calendar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+
+  svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.btn-filter {
+  background: var(--d-accent);
+  color: #fff;
+}
+
+.btn-calendar {
+  background: #fff;
+  color: var(--d-ink);
+  border: 1px solid var(--d-border);
+}
+
+.tip-banner {
+  display: block;
+  border: none;
+  border-radius: 12px;
+  background: var(--d-accent);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 16px 24px;
+  cursor: pointer;
+  margin-bottom: 24px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: var(--d-card);
+  border: 1px solid var(--d-border);
+  border-radius: 14px;
+  padding: 18px;
+
+  &.highlight {
+    background: var(--d-accent);
+    border-color: var(--d-accent);
+    color: #fff;
+
+    .stat-top span:first-child,
+    .stat-sub {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .stat-icon {
+      background: rgba(255, 255, 255, 0.25);
+      color: #fff;
+    }
+  }
+}
+
+.stat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: var(--d-ink-soft);
+  margin-bottom: 14px;
+}
+
+.stat-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--d-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.dark {
+    background: var(--d-dark);
+  }
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.stat-sub {
+  font-size: 12px;
+  color: var(--d-ink-soft);
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 18px;
+}
+
+.chart-card {
+  background: var(--d-card);
+  border: 1px solid var(--d-border);
+  border-radius: 14px;
+  padding: 20px;
+
+  h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 16px;
+  }
+}
+
+.line-chart {
+  width: 100%;
+  height: 220px;
+}
+
+.grid-line {
+  stroke: var(--d-border);
+  stroke-width: 1;
+}
+
+.line-dark {
+  fill: none;
+  stroke: var(--d-dark);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.line-accent {
+  fill: none;
+  stroke: var(--d-accent);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.axis-label {
+  font-size: 10px;
+  fill: var(--d-ink-soft);
+  text-anchor: middle;
+}
+
+.donut-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.donut-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  span {
+    font-size: 11.5px;
+    color: var(--d-ink-soft);
+  }
+
+  strong {
+    font-size: 22px;
+    font-weight: 800;
+  }
+
+  button {
+    align-self: flex-start;
+    margin-top: 6px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: none;
+    background: var(--d-accent);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+
+.donut-chart {
+  width: 130px;
+  height: 130px;
+  flex-shrink: 0;
+}
+
+// --- Formularios dentro de tarjetas (usado en Ingresos) ----------------
+
+.form-card {
+  background: var(--d-card);
+  border: 1px solid var(--d-border);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  align-items: end;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--d-ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  input,
+  select {
+    padding: 10px 12px;
+    border: 1px solid var(--d-border);
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--d-ink);
+    background: #fbf7ee;
+    outline: none;
+
+    &:focus {
+      border-color: var(--d-accent);
+    }
+  }
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  grid-column: 1 / -1;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+}
+
+.btn-primary {
+  background: var(--d-accent);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--d-ink-soft);
+  border: 1px solid var(--d-border);
+}
+
+.error-text {
+  font-size: 12.5px;
+  color: #c43d3d;
+  grid-column: 1 / -1;
+}
+
+// --- Lista de registros (usado en Ingresos al editar) -------------------
+
+.record-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.record-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--d-border);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 13.5px;
+}
+
+.record-row .record-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.record-row .record-info strong {
+  font-size: 14px;
+}
+
+.record-row .record-info small {
+  color: var(--d-ink-soft);
+}
+
+.record-row .record-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn-sm {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--d-border);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  &:hover {
+    background: #f7f3ea;
+  }
+
+  &.danger:hover {
+    border-color: #c43d3d;
+    color: #c43d3d;
+  }
+}
+
+@media (max-width: 1080px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

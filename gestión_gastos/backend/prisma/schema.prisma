@@ -24,18 +24,20 @@ model Usuario {
   updatedAt      DateTime    @updatedAt
   categorias     Categoria[]
   gastos         Gasto[]
+  ingresos       Ingreso[]
 
   @@map("usuarios")
 }
 
 model Categoria {
-  id        String   @id @default(uuid())
+  id        String    @id @default(uuid())
   nombre    String
-  color     String   @default("#E8672A")
+  color     String    @default("#E8672A")
   usuarioId String
-  usuario   Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  usuario   Usuario   @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
   gastos    Gasto[]
-  createdAt DateTime @default(now())
+  ingresos  Ingreso[]
+  createdAt DateTime  @default(now())
 
   @@unique([usuarioId, nombre])
   @@map("categorias")
@@ -54,4 +56,19 @@ model Gasto {
   updatedAt   DateTime  @updatedAt
 
   @@map("gastos")
+}
+
+model Ingreso {
+  id          String    @id @default(uuid())
+  monto       Decimal   @db.Decimal(10, 2)
+  descripcion String?
+  fecha       DateTime  @default(now())
+  categoriaId String
+  categoria   Categoria @relation(fields: [categoriaId], references: [id])
+  usuarioId   String
+  usuario     Usuario   @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("ingresos")
 }

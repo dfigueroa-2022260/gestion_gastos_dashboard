@@ -1,3 +1,16 @@
+<ng-template #iconTpl let-icono="icono">
+  <span class="nav-icon">
+    <svg *ngIf="icono === 'home'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-9z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg *ngIf="icono === 'chart'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg *ngIf="icono === 'card'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18" stroke-linecap="round"/></svg>
+    <svg *ngIf="icono === 'money'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="10" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg>
+    <svg *ngIf="icono === 'grid'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>
+    <svg *ngIf="icono === 'tag'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12l-8 8-9-9V4h7l10 10z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.5" cy="7.5" r="1.3"/></svg>
+    <svg *ngIf="icono === 'pie'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v10l7 7A10 10 0 0 0 12 2z" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 12L5 19A10 10 0 0 1 12 2v10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg *ngIf="icono === 'clipboard'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1M9 11h6M9 15h6" stroke-linecap="round"/></svg>
+  </span>
+</ng-template>
+
 <div class="dashboard">
   <!-- Sidebar -->
   <aside class="sidebar">
@@ -16,23 +29,28 @@
     </div>
 
     <nav class="sidebar-nav">
-      <a
-        *ngFor="let item of itemsSidebar"
-        class="nav-item"
-        [class.active]="item.label === activo"
-      >
-        <span class="nav-icon">
-          <svg *ngIf="item.icono === 'home'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-9z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <svg *ngIf="item.icono === 'chart'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <svg *ngIf="item.icono === 'card'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18" stroke-linecap="round"/></svg>
-          <svg *ngIf="item.icono === 'money'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="10" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg>
-          <svg *ngIf="item.icono === 'grid'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>
-          <svg *ngIf="item.icono === 'tag'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12l-8 8-9-9V4h7l10 10z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.5" cy="7.5" r="1.3"/></svg>
-          <svg *ngIf="item.icono === 'pie'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v10l7 7A10 10 0 0 0 12 2z" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 12L5 19A10 10 0 0 1 12 2v10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <svg *ngIf="item.icono === 'clipboard'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1M9 11h6M9 15h6" stroke-linecap="round"/></svg>
-        </span>
-        {{ item.label }}
-      </a>
+      <ng-container *ngFor="let item of itemsSidebar">
+        <a
+          *ngIf="item.ruta"
+          class="nav-item"
+          [routerLink]="item.ruta"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: !!item.exact }"
+        >
+          <ng-container *ngTemplateOutlet="iconTpl; context: { icono: item.icono }"></ng-container>
+          {{ item.label }}
+        </a>
+        <button
+          *ngIf="!item.ruta"
+          type="button"
+          class="nav-item"
+          [class.active]="item.label === activoManual()"
+          (click)="seleccionar(item.label)"
+        >
+          <ng-container *ngTemplateOutlet="iconTpl; context: { icono: item.icono }"></ng-container>
+          {{ item.label }}
+        </button>
+      </ng-container>
     </nav>
 
     <div class="sidebar-bottom">
@@ -60,9 +78,9 @@
       </div>
 
       <nav class="topbar-nav">
-        <span class="pill active">Saldo actual</span>
+        <a class="pill" routerLink="/gastos" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Saldo actual</a>
         <span class="pill">Gastos</span>
-        <span class="pill">Ingresos</span>
+        <a class="pill" routerLink="/gastos/ingresos" routerLinkActive="active">Ingresos</a>
         <span class="pill">Ahorro</span>
       </nav>
 
@@ -83,104 +101,7 @@
     </header>
 
     <main class="content">
-      <div class="content-header">
-        <h1>CASH TRACK <span>Principal</span></h1>
-        <div class="content-actions">
-          <button class="btn-filter" type="button">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16M7 12h10M10 19h4" stroke-linecap="round"/></svg>
-            Filter
-          </button>
-          <button class="btn-calendar" type="button">
-            Calendario
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
-      </div>
-
-      <button class="tip-banner" type="button">Consejos de Finanzas</button>
-
-      <div class="stats-grid">
-        <div class="stat-card highlight">
-          <div class="stat-top">
-            <span>Total</span>
-            <span class="stat-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-linecap="round"/></svg>
-            </span>
-          </div>
-          <div class="stat-value">Q25,000</div>
-          <div class="stat-sub">+12% mas variables</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-top">
-            <span>Datos de usuario</span>
-            <span class="stat-icon dark">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6" stroke-linecap="round"/></svg>
-            </span>
-          </div>
-          <div class="stat-value">Info</div>
-          <div class="stat-sub">Datos</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-top">
-            <span>Metas de ahorro</span>
-            <span class="stat-icon dark">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/></svg>
-            </span>
-          </div>
-          <div class="stat-value">320</div>
-          <div class="stat-sub">+5% mas</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-top">
-            <span>Descuentos de impuestos</span>
-            <span class="stat-icon dark">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19L19 5M8 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM16 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" stroke-linecap="round"/></svg>
-            </span>
-          </div>
-          <div class="stat-value">4.8%</div>
-          <div class="stat-sub">+12% increase</div>
-        </div>
-      </div>
-
-      <div class="charts-grid">
-        <div class="chart-card">
-          <h3>Resumen de gastos</h3>
-          <svg class="line-chart" viewBox="0 0 460 220" preserveAspectRatio="none">
-            <line *ngFor="let y of [0, 40, 80, 120, 160]" x1="30" [attr.y1]="190 - y" x2="450" [attr.y2]="190 - y" class="grid-line" />
-            <polyline [attr.points]="puntosLinea(lineaGastos)" class="line-dark" />
-            <polyline [attr.points]="puntosLinea(lineaIngresos)" class="line-accent" />
-            <text *ngFor="let m of mesesLinea; let i = index" [attr.x]="30 + i * 70" y="208" class="axis-label">{{ m }}</text>
-          </svg>
-        </div>
-
-        <div class="chart-card">
-          <h3>Resumen de ingresos</h3>
-          <div class="donut-wrap">
-            <div class="donut-info">
-              <span>Revenue Analytics</span>
-              <strong>Q12,000</strong>
-              <button type="button">EXTRAS</button>
-            </div>
-            <svg class="donut-chart" viewBox="0 0 100 100">
-              <circle
-                *ngFor="let seg of donutSegmentos; let i = index"
-                cx="50"
-                cy="50"
-                r="40"
-                fill="none"
-                [attr.stroke]="seg.color"
-                stroke-width="14"
-                [attr.stroke-dasharray]="donutLargo(seg.porcentaje) + ' 251'"
-                [attr.stroke-dashoffset]="donutOffset(i)"
-                transform="rotate(-90 50 50)"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
+      <router-outlet></router-outlet>
     </main>
   </div>
 </div>

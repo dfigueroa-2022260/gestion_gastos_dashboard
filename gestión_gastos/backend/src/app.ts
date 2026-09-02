@@ -4,6 +4,7 @@ import { errorMiddleware, notFoundMiddleware } from "./middlewares/error.middlew
 import authRoutes from "./modules/auth/auth.routes";
 import categoriaRoutes from "./modules/categorias/categoria.routes";
 import gastoRoutes from "./modules/gastos/gasto.routes";
+import ingresoRoutes from "./modules/ingresos/ingreso.routes";
 import usuarioRoutes from "./modules/usuarios/usuario.routes";
 
 const app = express();
@@ -19,6 +20,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/usuarios", usuarioRoutes);
 app.use("/api/categorias", categoriaRoutes);
 app.use("/api/gastos", gastoRoutes);
+app.use("/api/ingresos", ingresoRoutes);
 
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);
